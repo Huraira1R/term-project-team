@@ -1,8 +1,10 @@
-name: Basic CI Test
+ name: Basic CI Test
 
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
+  pull_request:
+    branches: [develop]
 
 jobs:
   build:
@@ -10,5 +12,12 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-      - name: Run Dummy Build
-        run: echo "Build successful"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Dummy Build Step
+        run: |
+          echo "✅ Build Successful"
