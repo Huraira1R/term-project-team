@@ -2,13 +2,15 @@ name: Basic CI Test
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Run Dummy Build
-        run: echo "Build successful"
+      - name: Just say Hello
+        run: echo "✅ CI Build Successful"
