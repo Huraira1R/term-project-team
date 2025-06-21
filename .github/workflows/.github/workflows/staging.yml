@@ -1,0 +1,21 @@
+name: Staging Deployment
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Dummy Build
+        run: echo "Staging build successful"
+
+      - name: Deploy to Staging
+        run: echo "Deploying to staging environment"
+        env:
+          ENVIRONMENT: staging-env
