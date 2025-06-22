@@ -1,3 +1,5 @@
+
+#ci-trigger-run
 name: Basic CI Test
 
 on:
