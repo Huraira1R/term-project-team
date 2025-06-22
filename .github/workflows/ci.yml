@@ -2,7 +2,9 @@ name: Basic CI Test
 
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
+  pull_request:
+    branches: [develop]
 
 jobs:
   build:
@@ -10,5 +12,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
       - name: Run Dummy Build
         run: echo "Build successful"
